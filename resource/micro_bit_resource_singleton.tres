@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MicroBitResDataState" format=3 uid="uid://bv4gmn2ce7sv6"]
+
+[ext_resource type="Script" uid="uid://c0fkygeb84dsg" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/core/micro_bit_res_data_state.gd" id="1_8uhjc"]
+
+[resource]
+script = ExtResource("1_8uhjc")
+metadata/_custom_type_script = "uid://c0fkygeb84dsg"

@@ -1,0 +1,439 @@
+[gd_scene format=3 uid="uid://o3608o5pwvky"]
+
+[ext_resource type="Script" uid="uid://qmbpk55orxkl" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/core/micro_bit_set_get_listen_to_data_state_only.gd" id="1_h0a72"]
+[ext_resource type="Resource" uid="uid://bv4gmn2ce7sv6" path="res://addons/2026_03_20_gdp_hello_micro_bit/resource/micro_bit_resource_singleton.tres" id="2_6uvft"]
+[ext_resource type="Script" uid="uid://da1onp5y26yog" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_parse_to_float_primitive.gd" id="3_lc3ni"]
+
+[node name="MicroBitDebugControl" type="Control" unique_id=195968574]
+layout_mode = 3
+anchor_right = 0.499
+anchor_bottom = 0.99700004
+offset_left = 8.0
+offset_right = -4.8480225
+offset_bottom = -0.056030273
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MicroBitDataState" type="Node" parent="." unique_id=852927518]
+script = ExtResource("1_h0a72")
+state = ExtResource("2_6uvft")
+metadata/_custom_type_script = "uid://qmbpk55orxkl"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1183789529]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer" unique_id=135129295]
+layout_mode = 2
+
+[node name="CheckButtonA" type="CheckButton" parent="VBoxContainer/HBoxContainer" unique_id=540141865]
+layout_mode = 2
+text = "A"
+
+[node name="CheckButtonB" type="CheckButton" parent="VBoxContainer/HBoxContainer" unique_id=736495026]
+layout_mode = 2
+text = "B"
+
+[node name="CheckButtonReset" type="CheckButton" parent="VBoxContainer/HBoxContainer" unique_id=787860932]
+layout_mode = 2
+text = "Reset"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer" unique_id=487445127]
+layout_mode = 2
+
+[node name="CheckButtonPin0" type="CheckButton" parent="VBoxContainer/HBoxContainer2" unique_id=1052090952]
+layout_mode = 2
+text = "Pin 0"
+
+[node name="CheckButtonPin1" type="CheckButton" parent="VBoxContainer/HBoxContainer2" unique_id=1579453170]
+layout_mode = 2
+text = "Pin 1"
+
+[node name="CheckButtonPin2" type="CheckButton" parent="VBoxContainer/HBoxContainer2" unique_id=1889549608]
+layout_mode = 2
+text = "Pin 2"
+
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer" unique_id=1653035980]
+layout_mode = 2
+
+[node name="CheckButtonPinLogo" type="CheckButton" parent="VBoxContainer/HBoxContainer3" unique_id=506370003]
+layout_mode = 2
+text = "Pin Logo"
+
+[node name="CheckButtonScreenDisable" type="CheckButton" parent="VBoxContainer/HBoxContainer3" unique_id=518228069]
+layout_mode = 2
+text = "Screen OFF"
+
+[node name="HBoxContainer4" type="HBoxContainer" parent="VBoxContainer" unique_id=10510495]
+layout_mode = 2
+
+[node name="CheckButtonFall" type="CheckButton" parent="VBoxContainer/HBoxContainer4" unique_id=612482880]
+layout_mode = 2
+text = "Fall"
+
+[node name="CheckButtonShaking" type="CheckButton" parent="VBoxContainer/HBoxContainer4" unique_id=47362204]
+layout_mode = 2
+text = "Shaking"
+
+[node name="HBoxContainer5" type="HBoxContainer" parent="VBoxContainer" unique_id=660097724]
+layout_mode = 2
+
+[node name="CheckButton3G" type="CheckButton" parent="VBoxContainer/HBoxContainer5" unique_id=849766655]
+layout_mode = 2
+text = "3G"
+
+[node name="CheckButton6G" type="CheckButton" parent="VBoxContainer/HBoxContainer5" unique_id=361280626]
+layout_mode = 2
+text = "6G"
+
+[node name="CheckButton8G" type="CheckButton" parent="VBoxContainer/HBoxContainer5" unique_id=7684762]
+layout_mode = 2
+text = "8G"
+
+[node name="LabelRequestTextAction" type="Label" parent="VBoxContainer" unique_id=2007332398]
+layout_mode = 2
+text = "Text action"
+
+[node name="LabelRequestImageStringAction" type="Label" parent="VBoxContainer" unique_id=892553754]
+layout_mode = 2
+text = "Image Action"
+
+[node name="LabelRequestIntegerAction" type="Label" parent="VBoxContainer" unique_id=1423393312]
+visible = false
+layout_mode = 2
+text = "Int Action"
+
+[node name="ControlLight" type="Control" parent="VBoxContainer" unique_id=2062043313]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LabelLight" type="Label" parent="VBoxContainer/ControlLight" unique_id=780343096]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Light 0 255"
+
+[node name="HSliderLight" type="HSlider" parent="VBoxContainer/ControlLight" unique_id=22973390]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 255.0
+
+[node name="MicroBitParseToFloatPrimitive" type="Node" parent="VBoxContainer/ControlLight" unique_id=182597383]
+script = ExtResource("3_lc3ni")
+metadata/_custom_type_script = "uid://da1onp5y26yog"
+
+[node name="ControlTemperature" type="Control" parent="VBoxContainer" unique_id=1102269154]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LabelTemperature" type="Label" parent="VBoxContainer/ControlTemperature" unique_id=1350436200]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Temperature -5 50"
+
+[node name="HSliderTemperature" type="HSlider" parent="VBoxContainer/ControlTemperature" unique_id=2011519930]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -5.0
+max_value = 50.0
+step = 0.02
+
+[node name="ControlCompass" type="Control" parent="VBoxContainer" unique_id=834831238]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LabelCompass" type="Label" parent="VBoxContainer/ControlCompass" unique_id=367367786]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Compass 0 360"
+
+[node name="HSliderCompass" type="HSlider" parent="VBoxContainer/ControlCompass" unique_id=642526637]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 360.0
+step = 0.02
+value = 0.04
+
+[node name="ControlMicrophone" type="Control" parent="VBoxContainer" unique_id=194043482]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LabelMicrophone" type="Label" parent="VBoxContainer/ControlMicrophone" unique_id=658313674]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Microphone 0 255  (75 150)"
+
+[node name="HSliderMicrophone" type="HSlider" parent="VBoxContainer/ControlMicrophone" unique_id=644222272]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 255.0
+
+[node name="MicroBitParseToFloatPrimitive" type="Node" parent="VBoxContainer/ControlMicrophone" unique_id=445823232]
+script = ExtResource("3_lc3ni")
+metadata/_custom_type_script = "uid://da1onp5y26yog"
+
+[node name="ControlButtons" type="Control" parent="VBoxContainer" unique_id=515844121]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1482942607]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ControlAccelerometer" type="Control" parent="VBoxContainer2" unique_id=1370196528]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer2/ControlAccelerometer" unique_id=900111044]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Accelerometer XYZ -2000 2000 mg
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer2/ControlAccelerometer" unique_id=1765675943]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.19900002
+anchor_right = 1.005
+anchor_bottom = 0.89000005
+offset_top = -0.9000015
+offset_right = 0.024993896
+
+[node name="HSliderAccelerometerX" type="HSlider" parent="VBoxContainer2/ControlAccelerometer/VBoxContainer" unique_id=299456366]
+layout_mode = 2
+min_value = -2000.0
+max_value = 2000.0
+step = 0.1
+
+[node name="HSliderAccelerometerY" type="HSlider" parent="VBoxContainer2/ControlAccelerometer/VBoxContainer" unique_id=1566019418]
+layout_mode = 2
+min_value = -2000.0
+max_value = 2000.0
+step = 0.1
+
+[node name="HSliderAccelerometerZ" type="HSlider" parent="VBoxContainer2/ControlAccelerometer/VBoxContainer" unique_id=59787384]
+layout_mode = 2
+min_value = -2000.0
+max_value = 2000.0
+step = 0.1
+
+[node name="ControlButtons" type="Control" parent="VBoxContainer2" unique_id=1455152571]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2/ControlButtons" unique_id=993679140]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ButtonRandom" type="Button" parent="VBoxContainer2/ControlButtons/HBoxContainer" unique_id=424812710]
+layout_mode = 2
+text = "Random Leds"
+
+[node name="ButtonON" type="Button" parent="VBoxContainer2/ControlButtons/HBoxContainer" unique_id=665730013]
+layout_mode = 2
+text = "LEDS ON"
+
+[node name="ButtonOFF" type="Button" parent="VBoxContainer2/ControlButtons/HBoxContainer" unique_id=1358825047]
+layout_mode = 2
+text = "LEDS OFF"
+
+[node name="LabelDebugLedsLine" type="Label" parent="VBoxContainer2" unique_id=1109770035]
+layout_mode = 2
+text = "0000000000000000000000000"
+
+[node name="LabelDebugLedsSquare" type="Label" parent="VBoxContainer2" unique_id=1642591746]
+layout_mode = 2
+text = "00000
+00000
+00000
+00000
+00000"
+
+[node name="ControlTilt" type="Control" parent="VBoxContainer2" unique_id=1530024844]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LabelTiltXLeftRight" type="Label" parent="VBoxContainer2/ControlTilt" unique_id=689530143]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Tilt Left Right"
+
+[node name="HSliderTilt" type="HSlider" parent="VBoxContainer2/ControlTilt" unique_id=992014586]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -180.0
+max_value = 180.0
+step = 0.1
+
+[node name="ControlTiltYBackFront" type="Control" parent="VBoxContainer2" unique_id=1274475103]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LabelTilt" type="Label" parent="VBoxContainer2/ControlTiltYBackFront" unique_id=1337104763]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Tilt Back Front"
+
+[node name="HSliderTilt" type="HSlider" parent="VBoxContainer2/ControlTiltYBackFront" unique_id=1560096077]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -180.0
+max_value = 180.0
+step = 0.1
+
+[node name="ControlTiltWheel" type="Control" parent="VBoxContainer2" unique_id=1267603305]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="LabelTilt" type="Label" parent="VBoxContainer2/ControlTiltWheel" unique_id=477673703]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_bottom = 8.0
+theme_override_font_sizes/font_size = 11
+text = "Tilt Wheel Left Right"
+
+[node name="HSliderTilt" type="HSlider" parent="VBoxContainer2/ControlTiltWheel" unique_id=1818795360]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 15.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+min_value = -180.0
+max_value = 180.0
+step = 0.1
+
+[connection signal="on_accelerometer_x_2000_mg_updated" from="MicroBitDataState" to="VBoxContainer2/ControlAccelerometer/VBoxContainer/HSliderAccelerometerX" method="set_value_no_signal"]
+[connection signal="on_accelerometer_y_2000_mg_updated" from="MicroBitDataState" to="VBoxContainer2/ControlAccelerometer/VBoxContainer/HSliderAccelerometerY" method="set_value_no_signal"]
+[connection signal="on_accelerometer_z_2000_mg_updated" from="MicroBitDataState" to="VBoxContainer2/ControlAccelerometer/VBoxContainer/HSliderAccelerometerZ" method="set_value_no_signal"]
+[connection signal="on_array_leds_as_line_updated" from="MicroBitDataState" to="VBoxContainer2/LabelDebugLedsLine" method="set_text"]
+[connection signal="on_array_leds_as_square_updated" from="MicroBitDataState" to="VBoxContainer2/LabelDebugLedsSquare" method="set_text"]
+[connection signal="on_button_a_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer/CheckButtonA" method="set_pressed_no_signal"]
+[connection signal="on_button_b_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer/CheckButtonB" method="set_pressed_no_signal"]
+[connection signal="on_button_logo_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer3/CheckButtonPinLogo" method="set_pressed_no_signal"]
+[connection signal="on_button_reset_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer/CheckButtonReset" method="set_pressed_no_signal"]
+[connection signal="on_compass_0_360_updated" from="MicroBitDataState" to="VBoxContainer/ControlCompass/HSliderCompass" method="set_value_no_signal"]
+[connection signal="on_device_falling_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer4/CheckButtonFall" method="set_pressed_no_signal"]
+[connection signal="on_device_over_3g_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer5/CheckButton3G" method="set_pressed_no_signal"]
+[connection signal="on_device_over_6g_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer5/CheckButton6G" method="set_pressed_no_signal"]
+[connection signal="on_device_over_8g_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer5/CheckButton8G" method="set_pressed_no_signal"]
+[connection signal="on_device_shaking_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer4/CheckButtonShaking" method="set_pressed_no_signal"]
+[connection signal="on_is_screen_disabled_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer3/CheckButtonScreenDisable" method="set_pressed_no_signal"]
+[connection signal="on_light_0_255_updated" from="MicroBitDataState" to="VBoxContainer/ControlLight/MicroBitParseToFloatPrimitive" method="parse_integer_to_float"]
+[connection signal="on_microphone_0_255_updated" from="MicroBitDataState" to="VBoxContainer/ControlMicrophone/MicroBitParseToFloatPrimitive" method="parse_integer_to_float"]
+[connection signal="on_pin_0_on_off_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer2/CheckButtonPin0" method="set_pressed_no_signal"]
+[connection signal="on_pin_1_on_off_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer2/CheckButtonPin1" method="set_pressed_no_signal"]
+[connection signal="on_pin_2_on_off_updated" from="MicroBitDataState" to="VBoxContainer/HBoxContainer2/CheckButtonPin2" method="set_pressed_no_signal"]
+[connection signal="on_temperature_50_updated" from="MicroBitDataState" to="VBoxContainer/ControlTemperature/HSliderTemperature" method="set_value_no_signal"]
+[connection signal="on_tilt_plane_x_left_right_180_updated" from="MicroBitDataState" to="VBoxContainer2/ControlTilt/HSliderTilt" method="set_value_no_signal"]
+[connection signal="on_tilt_plane_y_back_to_front_180_updated" from="MicroBitDataState" to="VBoxContainer2/ControlTiltYBackFront/HSliderTilt" method="set_value_no_signal"]
+[connection signal="on_tilt_wheel_left_right_180_updated" from="MicroBitDataState" to="VBoxContainer2/ControlTiltWheel/HSliderTilt" method="set_value_no_signal"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckButtonA" to="MicroBitDataState" method="set_button_a"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckButtonB" to="MicroBitDataState" method="set_button_b"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer/CheckButtonReset" to="MicroBitDataState" method="set_button_reset"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/CheckButtonPin0" to="MicroBitDataState" method="set_pin_0_on_off"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/CheckButtonPin1" to="MicroBitDataState" method="set_pin_1_on_off"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer2/CheckButtonPin2" to="MicroBitDataState" method="set_pin_2_on_off"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer3/CheckButtonPinLogo" to="MicroBitDataState" method="set_button_logo"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer3/CheckButtonScreenDisable" to="MicroBitDataState" method="set_is_screen_disabled"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer4/CheckButtonFall" to="MicroBitDataState" method="set_device_as_falling"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer4/CheckButtonShaking" to="MicroBitDataState" method="set_device_as_shaking"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer5/CheckButton3G" to="MicroBitDataState" method="set_device_as_over_3g"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer5/CheckButton6G" to="MicroBitDataState" method="set_device_as_over_6g"]
+[connection signal="toggled" from="VBoxContainer/HBoxContainer5/CheckButton8G" to="MicroBitDataState" method="set_device_as_over_8g"]
+[connection signal="value_changed" from="VBoxContainer/ControlLight/HSliderLight" to="MicroBitDataState" method="set_light_from_float_0_255"]
+[connection signal="on_parse_as_float" from="VBoxContainer/ControlLight/MicroBitParseToFloatPrimitive" to="VBoxContainer/ControlLight/HSliderLight" method="set_value_no_signal"]
+[connection signal="value_changed" from="VBoxContainer/ControlTemperature/HSliderTemperature" to="MicroBitDataState" method="set_temperature_50"]
+[connection signal="value_changed" from="VBoxContainer/ControlCompass/HSliderCompass" to="MicroBitDataState" method="set_compass_0_360"]
+[connection signal="value_changed" from="VBoxContainer/ControlMicrophone/HSliderMicrophone" to="MicroBitDataState" method="set_microphone_from_float_0_255"]
+[connection signal="on_parse_as_float" from="VBoxContainer/ControlMicrophone/MicroBitParseToFloatPrimitive" to="VBoxContainer/ControlMicrophone/HSliderMicrophone" method="set_value_no_signal"]
+[connection signal="value_changed" from="VBoxContainer2/ControlAccelerometer/VBoxContainer/HSliderAccelerometerX" to="MicroBitDataState" method="set_accelerometer_x_2000_mg"]
+[connection signal="value_changed" from="VBoxContainer2/ControlAccelerometer/VBoxContainer/HSliderAccelerometerY" to="MicroBitDataState" method="set_accelerometer_y_2000_mg"]
+[connection signal="value_changed" from="VBoxContainer2/ControlAccelerometer/VBoxContainer/HSliderAccelerometerZ" to="MicroBitDataState" method="set_accelerometer_z_2000_mg"]
+[connection signal="button_down" from="VBoxContainer2/ControlButtons/HBoxContainer/ButtonRandom" to="MicroBitDataState" method="set_leds_5x5_with_random_percent"]
+[connection signal="button_down" from="VBoxContainer2/ControlButtons/HBoxContainer/ButtonON" to="MicroBitDataState" method="set_leds_5x5_to_on"]
+[connection signal="button_down" from="VBoxContainer2/ControlButtons/HBoxContainer/ButtonOFF" to="MicroBitDataState" method="set_leds_5x5_to_off"]
+[connection signal="value_changed" from="VBoxContainer2/ControlTilt/HSliderTilt" to="MicroBitDataState" method="set_tilt_plane_x_left_right_180"]
+[connection signal="value_changed" from="VBoxContainer2/ControlTiltYBackFront/HSliderTilt" to="MicroBitDataState" method="set_tilt_plane_y_back_to_front_180"]
+[connection signal="value_changed" from="VBoxContainer2/ControlTiltWheel/HSliderTilt" to="MicroBitDataState" method="set_tilt_wheel_left_right_180"]

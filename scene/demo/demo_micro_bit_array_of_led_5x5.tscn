@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://d2qvrov4hv5qj"]
+
+[ext_resource type="PackedScene" uid="uid://skeqkgsk85j8" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_array_matrix_leds_5x5.tscn" id="1_x7ykh"]
+
+[node name="DemoMicroBitArrayOfLed5x5" type="Node3D" unique_id=553660097]
+
+[node name="ArrayMatrixLeds5x5" parent="." unique_id=264011407 instance=ExtResource("1_x7ykh")]
+second_between_debug_refresh = 0.1
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1189140410]
+transform = Transform3D(1, 0, 0, 0, 0.51349634, 0.8580918, 0, -0.8580918, 0.51349634, 6.514264, 7.8440957, 10.858994)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1893107728]
+transform = Transform3D(1, 0, 0, 0, 0.7312109, 0.68215156, 0, -0.68215156, 0.7312109, 0, 7.494027, 0)

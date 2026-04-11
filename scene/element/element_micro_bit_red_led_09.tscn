@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://x5f1aipavf4j"]
+
+[ext_resource type="Script" uid="uid://csai1eitecft7" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_change_led_color_mesh.gd" id="1_hobj1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_2soqe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hoglh"]
+transparency = 1
+shading_mode = 0
+albedo_color = Color(0.37814677, 0.72471255, 1.540184e-06, 1)
+
+[node name="MicroBitRedLed09" type="Node3D" unique_id=144073179 node_paths=PackedStringArray("to_affect")]
+script = ExtResource("1_hobj1")
+to_affect = NodePath("MeshInstance3D")
+color_at_ready = Color(0.59607846, 0.011764706, 0.4862745, 0.12156863)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1320316005]
+mesh = SubResource("BoxMesh_2soqe")
+surface_material_override/0 = SubResource("StandardMaterial3D_hoglh")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://ctk6hfuks60sk"]
+
+[ext_resource type="PackedScene" uid="uid://mk87fwj3xx7h" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_tactile_button_touchable.tscn" id="1_puav0"]
+
+[node name="DemoMicroBitTouchableTactileButton" type="Node3D" unique_id=2120999069]
+
+[node name="MicroBitTactileButtonView" parent="." unique_id=422241058 instance=ExtResource("1_puav0")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.43118703, 0, 0.021695137)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=13780422]
+transform = Transform3D(1, 0, 0, 0, 0.945103, 0.32677254, 0, -0.32677254, 0.945103, 0, 1.1138613, 1.930737)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1516880953]

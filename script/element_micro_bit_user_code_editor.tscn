@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://dwvkwuun8ybu8"]
+
+[ext_resource type="Script" uid="uid://qmbpk55orxkl" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/core/micro_bit_set_get_listen_to_data_state_only.gd" id="1_4noxk"]
+[ext_resource type="Resource" uid="uid://bv4gmn2ce7sv6" path="res://addons/2026_03_20_gdp_hello_micro_bit/resource/micro_bit_resource_singleton.tres" id="2_0f7x7"]
+[ext_resource type="Script" uid="uid://xo4osry84raa" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_code_editor_to_moddable_node.gd" id="3_emotk"]
+[ext_resource type="Script" uid="uid://bjx4u2se4vs2n" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_default_code_in_micro_bit_editor.gd" id="4_uplb4"]
+[ext_resource type="Script" uid="uid://d2akn1676l1hg" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_mod_node_connection.gd" id="5_aa7i5"]
+
+[node name="MicroBitUserCodeEditor" type="Control" unique_id=338961122]
+layout_mode = 3
+anchor_right = 0.252
+anchor_bottom = 1.0
+offset_right = -0.3040161
+offset_bottom = 2.0
+
+[node name="MicroBitDataState" type="Node" parent="." unique_id=1575408837]
+script = ExtResource("1_4noxk")
+state = ExtResource("2_0f7x7")
+metadata/_custom_type_script = "uid://qmbpk55orxkl"
+
+[node name="MicroBitCodeEditorToModdableNode" type="Node" parent="." unique_id=1619760157 node_paths=PackedStringArray("code_editor_to_read_from")]
+script = ExtResource("3_emotk")
+code_editor_to_read_from = NodePath("../CodeEdit")
+code_to_load_at_ready = ExtResource("4_uplb4")
+execute_at_ready = true
+metadata/_custom_type_script = "uid://xo4osry84raa"
+
+[node name="MicroBitModNodeConnection" type="Node" parent="." unique_id=422189142]
+script = ExtResource("5_aa7i5")
+metadata/_custom_type_script = "uid://d2akn1676l1hg"
+
+[node name="CodeEdit" type="CodeEdit" parent="." unique_id=2138783347]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 3.0
+offset_bottom = -13.0
+text = "# Here we are going to add some code.
+extends Node
+func _ready()->void:
+	print(\"Hello Mod\")"
+
+[node name="Button" type="Button" parent="." unique_id=109940551]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.683
+anchor_top = 0.88500005
+anchor_right = 1.0
+anchor_bottom = 0.94900006
+offset_left = 0.9299927
+offset_top = -0.25006104
+offset_right = -2.0
+offset_bottom = 0.14996338
+text = "Reload"
+
+[connection signal="on_button_a_updated" from="MicroBitDataState" to="MicroBitModNodeConnection" method="mod_in_set_and_affect_button_a"]
+[connection signal="on_button_b_updated" from="MicroBitDataState" to="MicroBitModNodeConnection" method="mod_in_set_and_affect_button_b"]
+[connection signal="on_button_reset_updated" from="MicroBitDataState" to="MicroBitModNodeConnection" method="mod_in_set_and_affect_button_reset"]
+[connection signal="on_created_node_with_code" from="MicroBitCodeEditorToModdableNode" to="MicroBitModNodeConnection" method="set_node_to_affect"]
+[connection signal="button_down" from="Button" to="MicroBitCodeEditorToModdableNode" method="try_to_execute_code"]

@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://oc6kckd0qh8a"]
+
+[ext_resource type="Script" uid="uid://i7d5i8ii4kw" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_touchable_area_3d.gd" id="1_42u6j"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_7rqd3"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7rqd3"]
+
+[node name="MicroBitTouchableButtonArea3D" type="Node3D" unique_id=1013985853]
+
+[node name="MeshInstanceDebugZone" type="MeshInstance3D" parent="." unique_id=1479447117]
+mesh = SubResource("BoxMesh_7rqd3")
+
+[node name="Area3D" type="Area3D" parent="." unique_id=918942876]
+script = ExtResource("1_42u6j")
+metadata/_custom_type_script = "uid://i7d5i8ii4kw"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=417684876]
+shape = SubResource("BoxShape3D_7rqd3")

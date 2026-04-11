@@ -1,0 +1,83 @@
+[gd_scene format=3 uid="uid://skeqkgsk85j8"]
+
+[ext_resource type="Script" uid="uid://ctlg65bvrsvlp" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_matrix_leds_5x5.gd" id="1_3b4vc"]
+[ext_resource type="PackedScene" uid="uid://cg82o7a4x3sdu" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_change_led_color_with_signal.tscn" id="2_1u545"]
+
+[node name="ArrayMatrixLeds5x5" type="Node3D" unique_id=264011407 node_paths=PackedStringArray("array_of_leds")]
+script = ExtResource("1_3b4vc")
+array_of_leds = [NodePath("MicroBitChangeLedColorWithSignal0"), NodePath("MicroBitChangeLedColorWithSignal1"), NodePath("MicroBitChangeLedColorWithSignal2"), NodePath("MicroBitChangeLedColorWithSignal3"), NodePath("MicroBitChangeLedColorWithSignal4"), NodePath("MicroBitChangeLedColorWithSignal5"), NodePath("MicroBitChangeLedColorWithSignal6"), NodePath("MicroBitChangeLedColorWithSignal7"), NodePath("MicroBitChangeLedColorWithSignal8"), NodePath("MicroBitChangeLedColorWithSignal9"), NodePath("MicroBitChangeLedColorWithSignal10"), NodePath("MicroBitChangeLedColorWithSignal11"), NodePath("MicroBitChangeLedColorWithSignal12"), NodePath("MicroBitChangeLedColorWithSignal13"), NodePath("MicroBitChangeLedColorWithSignal14"), NodePath("MicroBitChangeLedColorWithSignal15"), NodePath("MicroBitChangeLedColorWithSignal16"), NodePath("MicroBitChangeLedColorWithSignal17"), NodePath("MicroBitChangeLedColorWithSignal18"), NodePath("MicroBitChangeLedColorWithSignal19"), NodePath("MicroBitChangeLedColorWithSignal20"), NodePath("MicroBitChangeLedColorWithSignal21"), NodePath("MicroBitChangeLedColorWithSignal22"), NodePath("MicroBitChangeLedColorWithSignal23"), NodePath("MicroBitChangeLedColorWithSignal24")]
+metadata/_custom_type_script = "uid://ctlg65bvrsvlp"
+
+[node name="MicroBitChangeLedColorWithSignal0" parent="." unique_id=1178328725 instance=ExtResource("2_1u545")]
+
+[node name="MicroBitChangeLedColorWithSignal1" parent="." unique_id=2067872458 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal2" parent="." unique_id=1685145665 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal3" parent="." unique_id=1053728905 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal4" parent="." unique_id=1229314278 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal5" parent="." unique_id=1140805726 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal6" parent="." unique_id=1601200306 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal7" parent="." unique_id=456733917 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal8" parent="." unique_id=299746147 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal9" parent="." unique_id=49642877 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal10" parent="." unique_id=494722967 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal11" parent="." unique_id=954347130 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal12" parent="." unique_id=658478585 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal13" parent="." unique_id=1052252400 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal14" parent="." unique_id=2129399830 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal15" parent="." unique_id=2073204555 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal16" parent="." unique_id=994947806 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal17" parent="." unique_id=919020732 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal18" parent="." unique_id=35497086 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal19" parent="." unique_id=136014421 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal20" parent="." unique_id=1728651326 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal21" parent="." unique_id=1906945690 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal22" parent="." unique_id=194829584 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal23" parent="." unique_id=1223467047 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal24" parent="." unique_id=2071858286 instance=ExtResource("2_1u545")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)

@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://ong7vyrdic18"]
+
+[ext_resource type="PackedScene" uid="uid://x5f1aipavf4j" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_red_led_09.tscn" id="1_hoglh"]
+[ext_resource type="PackedScene" uid="uid://cg82o7a4x3sdu" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_change_led_color_with_signal.tscn" id="3_tudab"]
+
+[node name="DemoHowToUseLed" type="Node3D" unique_id=372729800]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=395346714]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=346531533]
+transform = Transform3D(1, 0, 0, 0, 0.82859814, 0.55984384, 0, -0.55984384, 0.82859814, 0, 0.72843915, 1.8373624)
+
+[node name="CanvasLayerToTestTheLeds" type="CanvasLayer" parent="." unique_id=344518164]
+
+[node name="HSliderDemoPercentFloat" type="HSlider" parent="CanvasLayerToTestTheLeds" unique_id=1962829694]
+anchors_preset = -1
+anchor_right = 0.554
+anchor_bottom = 0.119
+offset_right = -0.20800781
+offset_bottom = -0.11199951
+max_value = 1.0
+step = 0.001
+
+[node name="HSliderDemoInt09" type="HSlider" parent="CanvasLayerToTestTheLeds" unique_id=938793954]
+anchors_preset = -1
+anchor_top = 0.17600001
+anchor_right = 0.56
+anchor_bottom = 0.39200002
+offset_top = -0.04801178
+offset_right = -0.11999512
+offset_bottom = -0.01600647
+max_value = 9.0
+
+[node name="LineEditDemoText" type="LineEdit" parent="CanvasLayerToTestTheLeds" unique_id=748754363]
+anchors_preset = -1
+anchor_top = 0.44300002
+anchor_right = 0.573
+anchor_bottom = 0.647
+offset_top = -0.06402588
+offset_right = -0.0960083
+offset_bottom = -0.25601196
+text = "Eloi  09"
+
+[node name="MyBeautifulLed2D" type="ColorRect" parent="CanvasLayerToTestTheLeds" unique_id=100646879]
+anchors_preset = -1
+anchor_left = 0.90700006
+anchor_top = 0.035
+anchor_right = 0.95600003
+anchor_bottom = 0.128
+offset_left = 0.13598633
+offset_top = 0.3199997
+offset_right = -0.31201172
+offset_bottom = 0.055999756
+
+[node name="MicroBitRedLedWithMesh" parent="." unique_id=144073179 instance=ExtResource("1_hoglh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5679114, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal" parent="." unique_id=1178328725 instance=ExtResource("3_tudab")]
+
+[connection signal="value_changed" from="CanvasLayerToTestTheLeds/HSliderDemoPercentFloat" to="MicroBitRedLedWithMesh" method="set_color_red_with_percent"]
+[connection signal="value_changed" from="CanvasLayerToTestTheLeds/HSliderDemoPercentFloat" to="MicroBitChangeLedColorWithSignal" method="set_color_red_with_percent"]
+[connection signal="value_changed" from="CanvasLayerToTestTheLeds/HSliderDemoInt09" to="MicroBitRedLedWithMesh" method="set_color_red_with_0_to_9_float"]
+[connection signal="value_changed" from="CanvasLayerToTestTheLeds/HSliderDemoInt09" to="MicroBitChangeLedColorWithSignal" method="set_color_red_with_0_to_9_float"]
+[connection signal="text_changed" from="CanvasLayerToTestTheLeds/LineEditDemoText" to="MicroBitRedLedWithMesh" method="set_color_red_with_0_to_9_char"]
+[connection signal="text_changed" from="CanvasLayerToTestTheLeds/LineEditDemoText" to="MicroBitChangeLedColorWithSignal" method="set_color_red_with_0_to_9_char"]
+[connection signal="on_color_led_changed" from="MicroBitChangeLedColorWithSignal" to="CanvasLayerToTestTheLeds/MyBeautifulLed2D" method="set_color"]
+
+[editable path="MicroBitChangeLedColorWithSignal"]

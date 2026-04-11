@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://1h5kcsx6f4b0"]
+
+[ext_resource type="PackedScene" uid="uid://cg82o7a4x3sdu" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_change_led_color_with_signal.tscn" id="1_2gt1h"]
+[ext_resource type="Script" uid="uid://cere4osjtxhrq" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/archived_micro_bit_display_matrix_5x5.gd" id="1_upb20"]
+
+[node name="NodeMatrixLed25x25" type="Node3D" unique_id=1540269188]
+script = ExtResource("1_upb20")
+metadata/_custom_type_script = "uid://cere4osjtxhrq"
+
+[node name="MicroBitChangeLedColorWithSignal" parent="." unique_id=1178328725 instance=ExtResource("1_2gt1h")]
+
+[node name="MicroBitChangeLedColorWithSignal2" parent="." unique_id=1345421235 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal3" parent="." unique_id=688506483 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal4" parent="." unique_id=1048996056 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal5" parent="." unique_id=2053145854 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 0)
+
+[node name="MicroBitChangeLedColorWithSignal6" parent="." unique_id=1775842146 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal7" parent="." unique_id=1212738455 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal8" parent="." unique_id=878824931 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal9" parent="." unique_id=2095876106 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal10" parent="." unique_id=1162592905 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 2)
+
+[node name="MicroBitChangeLedColorWithSignal11" parent="." unique_id=1977716808 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal12" parent="." unique_id=94920631 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal13" parent="." unique_id=567993905 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal14" parent="." unique_id=863746993 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal15" parent="." unique_id=47117863 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 4)
+
+[node name="MicroBitChangeLedColorWithSignal16" parent="." unique_id=1225697684 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal17" parent="." unique_id=366618973 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal18" parent="." unique_id=1720052461 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal19" parent="." unique_id=2020868658 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal20" parent="." unique_id=1765911420 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 6)
+
+[node name="MicroBitChangeLedColorWithSignal21" parent="." unique_id=1004179324 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal22" parent="." unique_id=1263432120 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal23" parent="." unique_id=1603863181 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal24" parent="." unique_id=1239250367 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 8)
+
+[node name="MicroBitChangeLedColorWithSignal25" parent="." unique_id=1428340713 instance=ExtResource("1_2gt1h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 8)

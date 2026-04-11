@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cg82o7a4x3sdu"]
+
+[ext_resource type="Script" uid="uid://b3eu85xihlsbn" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_change_led_color_with_signal.gd" id="1_ckwnb"]
+[ext_resource type="Script" uid="uid://bn0xpqw64bgly" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/micro_bit_set_mesh_instance_3d_color.gd" id="2_6f4vy"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_r1v3d"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dgjn2"]
+shading_mode = 0
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="MicroBitChangeLedColorWithSignal" type="Node3D" unique_id=1178328725]
+script = ExtResource("1_ckwnb")
+metadata/_custom_type_script = "uid://b3eu85xihlsbn"
+
+[node name="NodeChangeColorOfMesh" type="Node" parent="." unique_id=102621453 node_paths=PackedStringArray("to_affect")]
+script = ExtResource("2_6f4vy")
+to_affect = NodePath("../MeshInstance3D")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=841401756]
+mesh = SubResource("BoxMesh_r1v3d")
+surface_material_override/0 = SubResource("StandardMaterial3D_dgjn2")
+
+[connection signal="on_color_led_changed" from="." to="NodeChangeColorOfMesh" method="set_color_of_the_mesh_material"]

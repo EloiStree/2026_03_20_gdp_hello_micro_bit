@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bbkgefomwt4kv"]
+
+[ext_resource type="PackedScene" uid="uid://twxqaagw0qu2" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/core/micro_bit_with_code_quad_facade.tscn" id="1_585vc"]
+
+[node name="DemoMicroBitAsAQuadImage" type="Node3D" unique_id=795836090]
+
+[node name="MicroBitWithCodeQuadFacade" parent="." unique_id=1913523682 instance=ExtResource("1_585vc")]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1892756237]
+transform = Transform3D(1, 0, 0, 0, 0.94240236, 0.33448133, 0, -0.33448133, 0.94240236, 0, 1.1269305, 1.4714651)

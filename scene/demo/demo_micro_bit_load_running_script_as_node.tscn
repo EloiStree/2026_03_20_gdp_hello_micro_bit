@@ -1,0 +1,55 @@
+[gd_scene format=3 uid="uid://cw83e37lp6wc"]
+
+[ext_resource type="PackedScene" uid="uid://o3608o5pwvky" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_debug_control.tscn" id="1_ik5qv"]
+[ext_resource type="PackedScene" uid="uid://dwvkwuun8ybu8" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/element_micro_bit_user_code_editor.tscn" id="1_mj7hm"]
+[ext_resource type="PackedScene" uid="uid://twxqaagw0qu2" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/core/micro_bit_with_code_quad_facade.tscn" id="3_mj7hm"]
+
+[node name="DemoMicroBitLoadRunningScriptAsNode" type="Node3D" unique_id=142767019]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1939730770]
+
+[node name="MicroBitUserCodeEditor" parent="CanvasLayer" unique_id=338961122 instance=ExtResource("1_mj7hm")]
+anchor_left = 0.72
+anchor_top = 0.72700006
+anchor_right = 0.99600005
+anchor_bottom = 0.99700004
+offset_left = -0.44006348
+offset_top = -19.096039
+offset_right = -0.39208984
+offset_bottom = -0.056030273
+
+[node name="MicroBitDebugControl" parent="CanvasLayer" unique_id=195968574 instance=ExtResource("1_ik5qv")]
+
+[node name="MicroBitDebugControl2" parent="CanvasLayer" unique_id=1018441954 instance=ExtResource("1_ik5qv")]
+anchor_left = 0.52900004
+anchor_top = 0.003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -0.40808105
+offset_top = 0.055999994
+offset_right = -8.0
+offset_bottom = -1.9439697
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=619324000]
+anchors_preset = -1
+anchor_left = 0.874
+anchor_top = 0.18100001
+anchor_right = 0.97900003
+anchor_bottom = 0.33100003
+offset_left = -2.8480225
+offset_top = -1.2880096
+offset_right = -3.8079834
+offset_bottom = -20.488022
+text = "Push
+Random Array"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1206520464]
+transform = Transform3D(1, 0, 0, 0, 0.8148649, 0.579651, 0, -0.579651, 0.8148649, 0.19636762, 1.2644471, 1.3214152)
+current = true
+
+[node name="MicroBitWithCodeQuadFacade" parent="." unique_id=1913523682 instance=ExtResource("3_mj7hm")]
+transform = Transform3D(0.41639194, 0, 0.90918523, 0, 1, 0, -0.90918523, 0, 0.41639194, 0, 0, 0)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1535694347]
+
+[editable path="CanvasLayer/MicroBitDebugControl"]

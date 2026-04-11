@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://jvavmcuiuoog"]
+
+[ext_resource type="PackedScene" uid="uid://mk87fwj3xx7h" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_tactile_button_touchable.tscn" id="1_3gj6j"]
+[ext_resource type="Script" uid="uid://b4fchevv1qfve" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/demo/micro_bit_interactive_source.gd" id="1_aohy7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m4yag"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3gj6j"]
+
+[node name="DemoMicroBitTactileButtonInteractable" type="Node3D" unique_id=1597294364]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=316759446]
+transform = Transform3D(1, 0, 0, 0, 0.94588166, 0.3245118, 0, -0.3245118, 0.94588166, 0, 1.5116692, 2.579299)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1489312135]
+transform = Transform3D(1, 0, 0, 0, 0.81919205, 0.57351923, 0, -0.57351923, 0.81919205, 0, 0, 0)
+
+[node name="Area3D" type="Area3D" parent="." unique_id=1796066033 groups=["interactable_group", "interactable_source"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5940242, 0.32461643, 0)
+collision_layer = 1793
+collision_mask = 0
+
+[node name="MicroBitInteractiveSource" type="Node" parent="Area3D" unique_id=830683386]
+script = ExtResource("1_aohy7")
+metadata/_custom_type_script = "uid://b4fchevv1qfve"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" unique_id=164272043]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.10087943, 0, 0)
+shape = SubResource("BoxShape3D_m4yag")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D" unique_id=44072575]
+layers = 1281
+mesh = SubResource("BoxMesh_3gj6j")
+
+[node name="MicroBitTactileButtonTouchable" parent="." unique_id=422241058 instance=ExtResource("1_3gj6j")]
+
+[node name="MicroBitAreaCollidableArea3D" parent="MicroBitTactileButtonTouchable" index="4" unique_id=1476049351]
+layer_mask_filter = 4294962688
+
+[editable path="MicroBitTactileButtonTouchable"]
