@@ -1,5 +1,6 @@
-# Moddable Micro:bit in Godot
+🚧Under construction to be use after the 17th may 2026 for a workshop 🚧
 
+# Moddable Micro:bit in Godot
 
 > A Godot-based Micro:bit simulator designed for coding education.
 
