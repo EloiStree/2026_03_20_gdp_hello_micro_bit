@@ -176,6 +176,17 @@ signal mod_out_set_touch_mode_as_capacitive(index_0_2:int)
 signal mod_out_set_touch_mode_as_resitive(index_0_2:int)
 
 
+
+
+signal mod_out_set_pin_state_as_high_low(index_0_20:int,true_hight_false_low:bool)
+signal mod_out_set_pin_state_as_percent(index_0_20:int,state_as_percent:float)
+signal mod_out_set_pin_state_as_analog_0_1023(index_0_20:int,analog_value_0_1023:int)
+signal mod_out_set_pin_as_write_mode(index_0_20:int,true_write_false_read:bool)
+signal mod_out_set_pin_as_digital_mode(index_0_20:int,true_digit_false_analog:bool)
+signal mod_out_set_pin_as_pull_up_mode(index_0_20:int,true_pull_up_false_down:bool)
+
+
+
 @export var signal_name_listen_to_text_command:String = "mod_out_on_request_text_command"
 @export var signal_name_listen_to_int_command:String = "mod_out_on_request_int_command"
 @export var signal_name_listen_to_image_command:String = "mod_out_on_request_image_command"
@@ -188,6 +199,14 @@ signal mod_out_set_touch_mode_as_resitive(index_0_2:int)
 
 @export var signal_name_listen_to_set_touch_mode_as_capacitive:String = "mod_out_set_touch_mode_as_capacitive"
 @export var signal_name_listen_to_set_touch_mode_as_resitive:String = "mod_out_set_touch_mode_as_resitive"
+
+
+@export var signal_name_listen_to_pin_state_as_high_low:String = "mod_out_set_pin_state_as_high_low"
+@export var signal_name_listen_to_pin_state_as_percent:String = "mod_out_set_pin_state_as_percent"
+@export var signal_name_listen_to_pin_state_as_analog_0_1023:String = "mod_out_set_pin_state_as_analog_0_1023"
+@export var signal_name_listen_to_pin_as_write_mode:String = "mod_out_set_pin_as_write_mode"
+@export var signal_name_listen_to_pin_as_digital_mode:String = "mod_out_set_pin_as_digital_mode"
+@export var signal_name_listen_to_pin_as_pull_up_mode:String = "mod_out_set_pin_as_pull_up_mode"
 
 #regions SIGNAL
 ## GIVE THE NODE TO FOCUS ON TO COMMUNICATE BETWEEN DEVELOPER AND THE USER SCRIPT
@@ -212,6 +231,13 @@ func connect_signals_to_given_node(given_node: Node):
 
 	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_set_touch_mode_as_capacitive, mod_out_set_touch_mode_as_capacitive.emit)
 	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_set_touch_mode_as_resitive, mod_out_set_touch_mode_as_resitive.emit)
+
+	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_pin_state_as_high_low, mod_out_set_pin_state_as_high_low.emit)
+	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_pin_state_as_percent, mod_out_set_pin_state_as_percent.emit)
+	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_pin_state_as_analog_0_1023, mod_out_set_pin_state_as_analog_0_1023.emit)
+	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_pin_as_write_mode, mod_out_set_pin_as_write_mode.emit)
+	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_pin_as_digital_mode, mod_out_set_pin_as_digital_mode.emit)
+	mod_out_connect_signal_in_node_to_callable(signal_name_listen_to_pin_as_pull_up_mode, mod_out_set_pin_as_pull_up_mode.emit)
 #endregion
 
 #region RANDOM TESTING

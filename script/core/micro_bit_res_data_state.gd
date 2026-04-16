@@ -45,6 +45,10 @@ const GND_PIN := -1
 const VCC_PIN := -3
 
 
+const PULL_UP := 1
+const PULL_DOWN := -1
+const PULL_NONE := 0
+
 
 # LEFT RIGHT USE OF THE COPPER ON THE MICRO BIT V2
 # https://makecode.microbit.org/device/pins
@@ -111,7 +115,10 @@ const DICE_WHEEL_RIGHT_90 :=Vector3(1000,0,0)
 ## IS THE PIN N READ OR WRITE MODE  IS IN WRITE==true,  READ==false OR MODE
 @export var _pins_is_write_mode:Array[bool]
 ## WHAT IS THE VALUE ON THE PIN 1(1024)-0(0) FOR DIGITAL  1024-0 for ANALOG 
-@export var _pins_value_state_0_1023:Array[bool]
+@export var _pins_value_state_0_1023:Array[int]
+
+@export var _pin_pull_state:Array[int] # PULL_UP, PULL_DOWN, PULL_NONE
+
 
 ## SEE PINS FOR MORE INFORMATION THE PIN BY DEFAULT ARE IN DIGITAL MODE AND IN READ MODE CAPACITIVE MODE
 @export var _pin_as_button_0:bool
@@ -176,6 +183,9 @@ const DICE_WHEEL_RIGHT_90 :=Vector3(1000,0,0)
 ## (HARD TO SIMULATE IN THE EDITOR, DEV ESTIMATION)
 @export var _accelerometer_z_2000_mg:float
 #endregion
+
+
+
 
 
 
@@ -318,13 +328,28 @@ func get_button_reset()->bool:
 signal on_array_leds_updated(leds_state_percent_5x5:Array[float])
 
 func set_leds_5x5_with_percent_by_copy(leds_state:Array[float])->void:
-	if _leds_percent_5x5.size()!=25:
-		_leds_percent_5x5.resize(25)
+	check_that_array_is_of_good_size_and_existing()
+	
 	for i in range(leds_state.size()):
 		if i<25:
 			_leds_percent_5x5[i] =leds_state[i]
 	on_array_leds_updated.emit(_leds_percent_5x5)
+
+func check_that_array_is_of_good_size_and_existing():
+	if _leds_percent_5x5 == null:
+		_leds_percent_5x5 = []
+	if _leds_percent_5x5.size()!=25:
+		_leds_percent_5x5.resize(25)
+
+func set_leds_5x5_with_text_image_by_copy(leds_state_text:String)->void:
+	check_that_array_is_of_good_size_and_existing()
+
+	MicroBitToolArray5x5.set_grid_5x5_from_text_of_0_9(_leds_percent_5x5, leds_state_text)
+	on_array_leds_updated.emit(_leds_percent_5x5)
 	
+
+	
+
 func get_leds_5x5_as_percent()->Array[float]:
 	return _leds_percent_5x5
 	
@@ -531,6 +556,9 @@ signal on_pin_value_updated(pin_index:int,value_0_1023:int)
 signal on_pin_digital_mode_updated(pin_index:int,is_digital_mode:bool)
 signal on_pin_write_mode_updated(pin_index:int,is_write_mode:bool)
 signal on_pin_capacitive_mode_updated(pin_index:int,is_capacitive_mode:bool)
+
+signal on_pin_pull_resistor_updated(pin_index:int,pull_state:int)
+
 signal on_pins_updated()
 
 func _check_pins_arrays_size()->void:
@@ -546,6 +574,10 @@ func _check_pins_arrays_size()->void:
 		_pins_value_state_0_1023.resize(MAX_PINS)
 		for i in range(MAX_PINS):
 			_pins_value_state_0_1023[i]=0
+	if _pin_pull_state.size()!=MAX_PINS:
+		_pin_pull_state.resize(MAX_PINS)
+		for i in range(MAX_PINS):
+			_pin_pull_state[i]=PULL_NONE
 	notify_pins_updated()
 
 func notify_pins_updated()->void:
@@ -584,6 +616,26 @@ func set_pin_as_digital_mode(pin_index:int,is_digital_mode:bool)->void:
 
 
 
+func set_pin_as_pull_resistor_mode(pin_index:int,pull_state:int)->void:
+	_check_pins_arrays_size()
+	if pin_index>=0 and pin_index<MAX_PINS:
+		_pin_pull_state[pin_index]=pull_state
+		on_pin_pull_resistor_updated.emit(pin_index,pull_state)
+		notify_pins_updated()
+
+func get_pin_pull_resistor_state(pin_index:int)->int:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		return _pin_pull_state[pin_index]
+	return PULL_NONE
+
+func is_pin_pull_up(pin_index:int)->bool:
+	return get_pin_pull_resistor_state(pin_index)==PULL_UP
+
+func is_pin_pull_down(pin_index:int)->bool:
+	return get_pin_pull_resistor_state(pin_index)==PULL_DOWN
+
+func is_pin_pull_none(pin_index:int)->bool:
+	return get_pin_pull_resistor_state(pin_index)==PULL_NONE
 
 
 
@@ -612,7 +664,7 @@ func set_pin_as_capacitive_mode(pin_index:int,is_capacitive_mode:bool)->void:
 
 func set_pin_as_resistive_mode(pin_index:int,is_resistive_mode:bool)->void:
 	set_pin_as_capacitive_mode(pin_index, not is_resistive_mode)
-
+	
 
 func is_pin_as_resistive_mode(pin_index:int)->bool:
 	if pin_index>=0 and pin_index<MAX_PINS:
@@ -636,10 +688,124 @@ func is_pin_as_capacitive_mode(pin_index:int)->bool:
 				return _pin_as_button_2
 	return false			
 
+func get_pin_as_percent_0_1(pin_index:int)->float:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		return _pins_value_state_0_1023[pin_index]/1023.0
+	return 0.0
+
+
+func get_pin_as_analog_0_1023(pin_index:int)->int:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		return _pins_value_state_0_1023[pin_index]
+	return 0
+
 #endregion
 
 
+#region GET PINS
 
+
+func is_pin_in_on_state_0_1(pin_index:int)->bool:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		return _pins_value_state_0_1023[pin_index]>pin_threshold_0_1023_for_on_off
+	return false
+
+func get_pin_analog_value_0_1023(pin_index:int)->int:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		return _pins_value_state_0_1023[pin_index]
+	return 0
+
+func is_pin_in_digital_mode(pin_index:int)->bool:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		return _pins_is_digital_mode[pin_index]
+	return false
+
+func is_pin_in_write_mode(pin_index:int)->bool:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		return _pins_is_write_mode[pin_index]
+	return false
+
+func is_pin_in_capacitive_mode(pin_index:int)->bool:
+	if pin_index>=0 and pin_index<MAX_PINS:
+		match pin_index:
+			0:
+				return _pin_as_button_0
+			1:
+				return _pin_as_button_1
+			2:
+				return _pin_as_button_2
+	return false
+
+
+func is_pin_in_resistive_mode(pin_index:int)->bool:
+	return not is_pin_in_capacitive_mode(pin_index)
+
+func is_pin_in_analog_mode(pin_index:int)->bool:
+	return not is_pin_in_digital_mode(pin_index)
+
+func is_pin_in_read_mode(pin_index:int)->bool:
+	return not is_pin_in_write_mode(pin_index)
+
+
+func get_pins_as_string_0_1()->String:
+	var result:String=""
+	for i in range(MAX_PINS):
+		if _pins_value_state_0_1023[i]>pin_threshold_0_1023_for_on_off:
+			result+= "1"
+		else:			
+			result+= "0"
+	return result
+
+func get_pins_as_string_0_1023()->String:
+	var result:String=""
+	for i in range(MAX_PINS):
+		result+= str(_pins_value_state_0_1023[i])
+	return result
+
+func get_pins_as_string_digital_analog()->String:
+	var result:String=""
+	for i in range(MAX_PINS):
+		result+= "D" if _pins_is_digital_mode[i] else "A"
+	return result
+
+func get_pins_as_string_read_write()->String:
+	var result:String=""
+	for i in range(MAX_PINS):
+		result+= "W" if _pins_is_write_mode[i] else "R"
+	return result
+
+func get_pins_as_string_1_digital_analog_read_write()->String:
+	var result:String=""
+	for i in range(MAX_PINS):
+		var pin_state:String = ("1" if _pins_value_state_0_1023[i]>pin_threshold_0_1023_for_on_off else "0")
+		var mode:String = ("D" if _pins_is_digital_mode[i] else "A")
+		var direction:String = ("W" if _pins_is_write_mode[i] else "R")
+		result+= pin_state + mode + direction + ","
+	return result.trim_suffix(",")
+
+func get_pins_as_string_capacitive_resistive()->String:
+	var result:String=""
+	for i in range(MAX_PINS):
+		if i==0:
+			result+= "C" if _pin_as_button_0 else "R"
+		elif i==1:
+			result+= "C" if _pin_as_button_1 else "R"
+		elif i==2:
+			result+= "C" if _pin_as_button_2 else "R"
+		else:
+			result+= "N/A"
+	return result
+
+func get_pins_as_pull_resistor_state()->String:
+	var result:String=""
+	for i in range(MAX_PINS):
+		var pull_state_str:String = "U" if is_pin_pull_up(i) else ("D" if is_pin_pull_down(i) else "N")
+		result+= pull_state_str
+	return result
+
+
+
+#endregion
 
 
 #region SET PIN LOGO

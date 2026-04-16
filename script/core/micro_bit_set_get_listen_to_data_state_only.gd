@@ -5,7 +5,6 @@ extends Node
 
 @export var state:MicroBitResDataState
 
-
 signal on_button_a_updated(is_pressing:bool)
 signal on_button_b_updated(is_pressing:bool)
 signal on_button_reset_updated(is_pressing:bool)
@@ -144,8 +143,44 @@ func turn_array_leds_as_square_updated(leds_state_percent_5x5:Array[float])->voi
 func set_pin_on_off_0_19(pin_index_0_19:int, is_high:bool)->void:
 	state.set_pin_analog_value_0_1023(pin_index_0_19,1023 if is_high else 0)
 
+
+func set_pin_as_percent01_0_19(pin_index_0_19:int, as_percent_01:float)->void:
+	state.set_pin_analog_value_0_1023(pin_index_0_19,int(1023 * as_percent_01))
+
+func set_pin_with_analog_value_0_1023(pin_index_0_19:int, analog_value_0_1023:int)->void:
+	state.set_pin_analog_value_0_1023(pin_index_0_19,analog_value_0_1023)
+
+
+func set_pin_as_digital_mode_0_19(pin_index_0_19:int, is_digital_mode:bool)->void:
+	state.set_pin_as_digital_mode(pin_index_0_19, is_digital_mode)
+
+func set_pin_as_write_mode_0_19(pin_index_0_19:int, is_write_mode:bool)->void:
+	state.set_pin_as_write_mode(pin_index_0_19, is_write_mode)
+
+
 func get_pin_on_off_0_19(pin_index_0_19:int, threshold:int=512)->bool:
 	return state.get_pin_analog_value_0_1023(pin_index_0_19) > threshold
+
+
+func get_pin_analog_value_0_1023(pin_index_0_19:int)->int:
+	return state.get_pin_analog_value_0_1023(pin_index_0_19)
+
+func get_pin_as_digital_mode_0_19(pin_index_0_19:int)->bool:
+	return state.get_pin_is_digital_mode(pin_index_0_19)
+
+func get_pin_as_write_mode_0_19(pin_index_0_19:int)->bool:
+	return state.get_pin_is_write_mode(pin_index_0_19)
+
+func get_pin_as_capacitive_mode_0_19(pin_index_0_19:int)->bool:
+	return state.get_pin_is_capacitive_mode(pin_index_0_19)
+
+func get_pin_as_pull_up_mode_0_19(pin_index_0_19:int)->bool:
+	return state.get_pin_is_pull_up_mode(pin_index_0_19)
+
+func set_pin_as_pull_up_mode_0_19(pin_index_0_19:int, is_pull_up_mode:bool)->void:
+	state.set_pin_as_pull_resistor_mode(pin_index_0_19, is_pull_up_mode)
+
+
 
 func set_pin_0_on_off(is_high:bool)->void:
 	set_pin_on_off_0_19(0,is_high)
@@ -156,6 +191,13 @@ func set_pin_1_on_off(is_high:bool)->void:
 func set_pin_2_on_off(is_high:bool)->void:
 	set_pin_on_off_0_19(2,is_high)
 
+
+func set_touch_mode_as_capacitive_0_2(pin_index_0_2:int, is_capacitive_mode:bool)->void:
+	state.set_pin_as_capacitive_mode(pin_index_0_2, is_capacitive_mode)
+
+
+func set_touch_mode_as_resistive_0_2(pin_index_0_2:int, is_resistive_mode:bool)->void:
+	state.set_pin_as_resistive_mode(pin_index_0_2,  is_resistive_mode)
 
 
 ################3
@@ -309,6 +351,21 @@ func set_button_logo(is_pressed:bool)->void:
 func get_button_logo()->bool:
 	return state.get_button_logo()
 
+##################
+
+
+
+func print_in_godot_for_debug(text:String)->void:
+	print(text)
+
+func print_in_godot_for_warning(text:String)->void:
+	print("[WARNING]",text)
+
+func print_in_godot_for_error(text:String)->void:
+	print("[ERROR]",text)
+
+
+
 #######################
 
 func set_leds_5x5_to_off():
@@ -323,7 +380,9 @@ func set_leds_5x5_with_random_percent():
 
 func set_leds_5x5_with_percent_by_copy(leds_state:Array[float])->void:
 	state.set_leds_5x5_with_percent_by_copy(leds_state)
-
+	
+func set_leds_5x5_with_text_image_by_copy(leds_state_text:String)->void:
+	state.set_leds_5x5_with_text_image_by_copy(leds_state_text)
 
 func set_led_1d_with_percent_0_1(led_index_0_24:int,led_percent_0_1:float)->void:
 	state.set_led_1d_percent_0_1(led_index_0_24,led_percent_0_1)

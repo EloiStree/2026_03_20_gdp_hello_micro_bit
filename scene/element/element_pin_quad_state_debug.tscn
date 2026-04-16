@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dbwnifehwixof"]
+
+[ext_resource type="Material" uid="uid://dtnuvleifidh8" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_on.tres" id="1_tr44w"]
+[ext_resource type="Material" uid="uid://0kh8jj5ks3ud" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_read.tres" id="2_c05pm"]
+[ext_resource type="Material" uid="uid://dsbdgilqblqi4" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_digital.tres" id="3_ca2oc"]
+[ext_resource type="Material" uid="uid://dy5a8t8adwo55" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_pull_none.tres" id="4_j431f"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_y4x5i"]
+
+[node name="PinQuadStateDebug" type="Node3D" unique_id=1710534973]
+
+[node name="PinIsOn" type="MeshInstance3D" parent="." unique_id=1973584428]
+transform = Transform3D(0.01566855, 0, 0, 0, -0.017839178, 0, 0, 0, 1, -0.008663953, -0.010107972, 0)
+mesh = SubResource("QuadMesh_y4x5i")
+surface_material_override/0 = ExtResource("1_tr44w")
+
+[node name="PinIsRead" type="MeshInstance3D" parent="." unique_id=1707980387]
+transform = Transform3D(0.01566855, 0, 0, 0, -0.017839178, 0, 0, 0, 1, -0.008663953, -0.027464844, 0)
+mesh = SubResource("QuadMesh_y4x5i")
+surface_material_override/0 = ExtResource("2_c05pm")
+
+[node name="PinIsDigital" type="MeshInstance3D" parent="." unique_id=1909845935]
+transform = Transform3D(0.01566855, 0, 0, 0, -0.017839178, 0, 0, 0, 1, -0.008663953, -0.044348694, 0)
+mesh = SubResource("QuadMesh_y4x5i")
+surface_material_override/0 = ExtResource("3_ca2oc")
+
+[node name="PinIsDown" type="MeshInstance3D" parent="." unique_id=1262877267]
+transform = Transform3D(0.01566855, 0, 0, 0, -0.017839178, 0, 0, 0, 1, -0.008663953, -0.056921937, 6.1035156e-05)
+mesh = SubResource("QuadMesh_y4x5i")
+surface_material_override/0 = ExtResource("4_j431f")

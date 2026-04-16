@@ -222,6 +222,8 @@ static func set_grid_5x5_from_text_of_0_9(to_affect:Array[float], text_with_a_0_
 	for chararacter in text_with_a_0_9:
 		if index >= MAX_LED_COUNT:
 			return
+		if index >= to_affect.size():
+			return
 		to_affect[index] = convert_character_0_to_9_to_percent_0_to_1(chararacter)
 		index = index + 1
 

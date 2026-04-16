@@ -6,6 +6,18 @@
 [ext_resource type="PackedScene" uid="uid://mk87fwj3xx7h" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_micro_bit_tactile_button_touchable.tscn" id="2_twatn"]
 [ext_resource type="Script" uid="uid://1w43piytjmrw" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/unstored/micro_bit_relay_leds_if_screen_on.gd" id="3_lbd2x"]
 [ext_resource type="PackedScene" uid="uid://skeqkgsk85j8" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_array_matrix_leds_5x5.tscn" id="3_tpux2"]
+[ext_resource type="Script" uid="uid://c2pgogw1af5h2" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/unstored/micro_bit_debug_pins_as_string.gd" id="7_h0xve"]
+[ext_resource type="Script" uid="uid://6gpljvg8jdbr" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/unstored/micro_bit_listen_at_resource_pins.gd" id="8_h0xve"]
+[ext_resource type="Script" uid="uid://bcetwd3j5sk4s" path="res://addons/2026_03_20_gdp_hello_micro_bit/script/unstored/micro_bit_index_true_false_material_on_mesh.gd" id="9_1eqeu"]
+[ext_resource type="Material" uid="uid://dtnuvleifidh8" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_on.tres" id="10_nrfy6"]
+[ext_resource type="Material" uid="uid://cppvetj840nnw" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_off.tres" id="11_r3m3d"]
+[ext_resource type="Material" uid="uid://0kh8jj5ks3ud" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_read.tres" id="12_tlpvn"]
+[ext_resource type="Material" uid="uid://jlmt3rdiaoyh" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_write.tres" id="13_1176g"]
+[ext_resource type="Material" uid="uid://dsbdgilqblqi4" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_digital.tres" id="14_h2y50"]
+[ext_resource type="Material" uid="uid://cxf25vn6fylrg" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_analog.tres" id="15_cdlv5"]
+[ext_resource type="Material" uid="uid://dh4io4jifcrdl" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_pull_up.tres" id="16_1176g"]
+[ext_resource type="PackedScene" uid="uid://dbwnifehwixof" path="res://addons/2026_03_20_gdp_hello_micro_bit/scene/element/element_pin_quad_state_debug.tscn" id="16_i4gp6"]
+[ext_resource type="Material" uid="uid://s1lwuxa5knu5" path="res://addons/2026_03_20_gdp_hello_micro_bit/material/mat_pin_is_pull_down.tres" id="17_h2y50"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_585vc"]
 
@@ -137,7 +149,56 @@ metadata/_edit_group_ = true
 transform = Transform3D(0.37176198, 0, 0, 0, 0.19060563, -3.5527137e-15, 0, 6.217249e-15, 0.57602805, 7.8950367, 0.10435083, 7.7289405)
 metadata/_edit_group_ = true
 
+[node name="NodeTemporary" type="Node" parent="." unique_id=1608062798]
+
+[node name="NodeDebugPins" type="Node" parent="NodeTemporary" unique_id=956567959]
+script = ExtResource("7_h0xve")
+micro_bit_state = ExtResource("2_tpux2")
+use_console_debug_prints_at_updated = true
+
+[node name="NodePinListener" type="Node" parent="NodeTemporary" unique_id=295449147]
+script = ExtResource("8_h0xve")
+micro_bit_state = ExtResource("2_tpux2")
+
+[node name="PinToOnOff" type="Node" parent="." unique_id=322901054 node_paths=PackedStringArray("mesh_instances")]
+script = ExtResource("9_1eqeu")
+true_material = ExtResource("10_nrfy6")
+false_material = ExtResource("11_r3m3d")
+mesh_instances = [NodePath("../PinQuadStateDebug0/PinIsOn"), NodePath("../PinQuadStateDebug1/PinIsOn"), NodePath("../PinQuadStateDebug2/PinIsOn")]
+metadata/_custom_type_script = "uid://bcetwd3j5sk4s"
+
+[node name="PinToReadWrite" type="Node" parent="." unique_id=1774111298 node_paths=PackedStringArray("mesh_instances")]
+script = ExtResource("9_1eqeu")
+true_material = ExtResource("12_tlpvn")
+false_material = ExtResource("13_1176g")
+mesh_instances = [NodePath("../PinQuadStateDebug0/PinIsRead"), NodePath("../PinQuadStateDebug1/PinIsRead"), NodePath("../PinQuadStateDebug2/PinIsRead")]
+metadata/_custom_type_script = "uid://bcetwd3j5sk4s"
+
+[node name="PinToDigitAnalog" type="Node" parent="." unique_id=1624627070 node_paths=PackedStringArray("mesh_instances")]
+script = ExtResource("9_1eqeu")
+true_material = ExtResource("14_h2y50")
+false_material = ExtResource("15_cdlv5")
+mesh_instances = [NodePath("../PinQuadStateDebug0/PinIsDigital"), NodePath("../PinQuadStateDebug1/PinIsDigital"), NodePath("../PinQuadStateDebug2/PinIsDigital")]
+metadata/_custom_type_script = "uid://bcetwd3j5sk4s"
+
+[node name="PinToPullState" type="Node" parent="." unique_id=1464610766 node_paths=PackedStringArray("mesh_instances")]
+script = ExtResource("9_1eqeu")
+true_material = ExtResource("16_1176g")
+false_material = ExtResource("17_h2y50")
+mesh_instances = [NodePath("../PinQuadStateDebug0/PinIsDown"), NodePath("../PinQuadStateDebug1/PinIsDown"), NodePath("../PinQuadStateDebug2/PinIsDown")]
+metadata/_custom_type_script = "uid://bcetwd3j5sk4s"
+
+[node name="PinQuadStateDebug0" parent="." unique_id=1710534973 instance=ExtResource("16_i4gp6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.37426394, 0.10363238, 0.0009765625)
+
+[node name="PinQuadStateDebug1" parent="." unique_id=710417328 instance=ExtResource("16_i4gp6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18243533, 0.10363238, 0.0009765625)
+
+[node name="PinQuadStateDebug2" parent="." unique_id=836596594 instance=ExtResource("16_i4gp6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.042200357, 0.10363238, 0.0009765625)
+
 [connection signal="on_array_leds_updated" from="MicroBitModelState" to="MicroBitModelState/MicroBitRelayLedsOnOff" method="relay_float_array_percent_0_1"]
+[connection signal="on_array_leds_updated" from="MicroBitModelState" to="ArrayMatrixLeds5x5" method="display_set_all_leds_with_array_of_percent_0_1"]
 [connection signal="on_button_a_updated" from="MicroBitModelState" to="MicroBitTactileButtonTouchableA" method="override_pressing_value_and_ui_state"]
 [connection signal="on_button_b_updated" from="MicroBitModelState" to="MicroBitTactileButtonTouchableB" method="override_pressing_value_and_ui_state"]
 [connection signal="on_button_reset_updated" from="MicroBitModelState" to="MicroBitTactileButtonTouchableReset" method="override_pressing_value_and_ui_state"]
@@ -147,8 +208,15 @@ metadata/_edit_group_ = true
 [connection signal="on_pressing_updated" from="MicroBitTactileButtonTouchableA" to="MicroBitModelState" method="set_button_a"]
 [connection signal="on_pressing_updated" from="MicroBitTactileButtonTouchableB" to="MicroBitModelState" method="set_button_b"]
 [connection signal="on_pressing_updated" from="MicroBitTactileButtonTouchableReset" to="MicroBitModelState" method="set_button_reset"]
+[connection signal="on_pins_updated_as_digital_analog" from="NodeTemporary/NodePinListener" to="PinToDigitAnalog" method="set_index_as_true_false"]
+[connection signal="on_pins_updated_as_pull_up_or_down" from="NodeTemporary/NodePinListener" to="PinToPullState" method="set_index_as_true_false"]
+[connection signal="on_pins_updated_as_read_write" from="NodeTemporary/NodePinListener" to="PinToReadWrite" method="set_index_as_true_false"]
+[connection signal="on_pins_updated_is_on_off" from="NodeTemporary/NodePinListener" to="PinToOnOff" method="set_index_as_true_false"]
 
 [editable path="MicroBitTactileButtonTouchableA"]
 [editable path="MicroBitTactileButtonTouchableB"]
 [editable path="MicroBitTactileButtonTouchableReset"]
 [editable path="ArrayMatrixLeds5x5"]
+[editable path="PinQuadStateDebug0"]
+[editable path="PinQuadStateDebug1"]
+[editable path="PinQuadStateDebug2"]
