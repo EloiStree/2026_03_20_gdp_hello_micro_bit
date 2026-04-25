@@ -19,7 +19,7 @@ albedo_color = Color(0.4506483, 0.4506483, 0.45064825, 1)
 albedo_color = Color(0.2159017, 0.21590173, 0.2159017, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_3w8vi"]
-size = Vector3(1, 0.4790039, 1)
+size = Vector3(1.0559082, 0.49447632, 1.081543)
 
 [node name="MicroBitTactileButtonTouchable" type="Node3D" unique_id=422241058]
 script = ExtResource("1_cotc3")
@@ -62,7 +62,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1745305, 0)
 script = ExtResource("3_bydkj")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3DTactileButton" unique_id=51557800]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.26049805, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.005004883, 0.2829132, 0.0021972656)
 shape = SubResource("BoxShape3D_3w8vi")
 
 [node name="MicroBitAreaCollidableArea3D" type="Area3D" parent="." unique_id=1476049351]

@@ -7,6 +7,9 @@ signal on_up()
 @export var use_print_debug:bool =true
 @export var pressing_state:bool = false
 
+func _ready() -> void:
+	input_ray_pickable =true
+	
 func is_pressed()->bool:
 	return pressing_state==true
 func is_released()->bool:
