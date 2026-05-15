@@ -3,16 +3,17 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://stmlmr2u2oef"
+path.s3tc="res://.godot/imported/microbit-drawing-back-2.svg-931df2851fc53a75f67932578573c591.s3tc.ctex"
 path.etc2="res://.godot/imported/microbit-drawing-back-2.svg-931df2851fc53a75f67932578573c591.etc2.ctex"
 metadata={
-"imported_formats": ["etc2_astc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 
 [deps]
 
 source_file="res://addons/2026_03_20_gdp_hello_micro_bit/assets/2d/micro_bit_v2/microbit-drawing-back-2.svg"
-dest_files=["res://.godot/imported/microbit-drawing-back-2.svg-931df2851fc53a75f67932578573c591.etc2.ctex"]
+dest_files=["res://.godot/imported/microbit-drawing-back-2.svg-931df2851fc53a75f67932578573c591.s3tc.ctex", "res://.godot/imported/microbit-drawing-back-2.svg-931df2851fc53a75f67932578573c591.etc2.ctex"]
 
 [params]
 
