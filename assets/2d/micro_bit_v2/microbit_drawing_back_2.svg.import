@@ -2,9 +2,9 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bi4bx3ci4x52o"
-path.s3tc="res://.godot/imported/microbit-drawing-2-blue.png-d0fe48f8d94446445ca0a218983bebe3.s3tc.ctex"
-path.etc2="res://.godot/imported/microbit-drawing-2-blue.png-d0fe48f8d94446445ca0a218983bebe3.etc2.ctex"
+uid="uid://stmlmr2u2oef"
+path.s3tc="res://.godot/imported/microbit_drawing_back_2.svg-6fecbde422f61be174cd9bb0c24e3698.s3tc.ctex"
+path.etc2="res://.godot/imported/microbit_drawing_back_2.svg-6fecbde422f61be174cd9bb0c24e3698.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
@@ -12,8 +12,8 @@ metadata={
 
 [deps]
 
-source_file="res://addons/2026_03_20_gdp_hello_micro_bit/assets/2d/micro_bit_v2/microbit-drawing-2-blue.png"
-dest_files=["res://.godot/imported/microbit-drawing-2-blue.png-d0fe48f8d94446445ca0a218983bebe3.s3tc.ctex", "res://.godot/imported/microbit-drawing-2-blue.png-d0fe48f8d94446445ca0a218983bebe3.etc2.ctex"]
+source_file="res://addons/2026_03_20_gdp_hello_micro_bit/assets/2d/micro_bit_v2/microbit_drawing_back_2.svg"
+dest_files=["res://.godot/imported/microbit_drawing_back_2.svg-6fecbde422f61be174cd9bb0c24e3698.s3tc.ctex", "res://.godot/imported/microbit_drawing_back_2.svg-6fecbde422f61be174cd9bb0c24e3698.etc2.ctex"]
 
 [params]
 
@@ -40,3 +40,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=0
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
